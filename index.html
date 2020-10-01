@@ -3,49 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script src="js/Cat.js"></script>
+    <script src="js/Rat.js"></script>
 </head>
 <body>
 <script>
-    function Rat(name,weight,speed) {
-        this.name = name;
-        this.weight = weight;
-        this.speed = speed;
-        this.isDead = false;
-        this.sound = function() {
-            alert('chit chit...')
-        }
-    }
-    function Cat(name,weight,speed) {
-        this.name = name;
-        this.weight = weight;
-        this.speed = speed;
-        this.sound = function() {
-            alert('meo meo...')
-        }
-        this.canCatchMouse = function(mouse) {
-            if (this.speed > mouse.speed) {
-                alert(`${this.name} can catch ${mouse.name}.`);
-                return true
-            } else return false
-        }
-        this.eat = function(mouse) {
-            if (this.canCatchMouse(mouse) && mouse.isDead === false) {
-                this.weight += mouse.weight;
-                mouse.isDead = true;
-                mouse.weight = 0;
-               alert(`${this.name}  eat ${mouse.name} successful`)
-            } else {
-                alert(`${this.name} can't eat ${mouse.name} `)
-            }
-        }
-    }
-    let Tom = new Cat('tom',10,12);
-    let Jerry = new Rat('jerry',2,10);
-    alert(Tom);
-    alert(Jerry);
-    Tom.eat(Jerry);
-   alert(Tom);
-   alert(Jerry);
+    let meo = new Cat("meo", 100, 500);
+    meo.sound();
+    let rat = new Rat("Chit", 0.5, 99);
+    rat.sound();
+    meo.catch(rat);
+    meo.eatRat();
 </script>
 </body>
 </html>
